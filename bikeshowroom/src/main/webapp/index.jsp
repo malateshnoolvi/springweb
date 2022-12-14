@@ -59,7 +59,7 @@ AMBASSADOR  <input type="text" name="ambassador" value="${dto.ambassador}"/><br>
 
 DESCRIPTION <input type="text" name="description" value="${dto.description}" /><br>
 
-          <input type="submit" value="send" />
+          <input type="submit" value="send" class="btn-primary"/>
 </pre>
 	</form>
 <script
