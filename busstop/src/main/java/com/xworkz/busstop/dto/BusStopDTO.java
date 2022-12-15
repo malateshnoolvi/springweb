@@ -1,18 +1,30 @@
 package com.xworkz.busstop.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Entity
+@AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "busstop")
 public class BusStopDTO {
-
+	@Id
 	private String name;
 	private String location;
 	private int capacity;
 	private boolean maintenance;
 	private int noOfFlatForms;
 	private int noOfWorkers;
+
+	public BusStopDTO() {
+		System.out.println("created default constructor...");
+	}
 
 	public BusStopDTO(String name, String location, int capacity, boolean maintenance, int noOfFlatForms,
 			int noOfWorkers) {

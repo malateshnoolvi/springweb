@@ -2,13 +2,19 @@ package com.xworkz.temple.dto;
 
 import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@Entity
+@NoArgsConstructor
+@Table(name = "temple")
 public class TempleDTO implements Serializable {
-
+	@Id
 	private String name;
 	private String location;
 	private String mainGod;
@@ -16,6 +22,10 @@ public class TempleDTO implements Serializable {
 	private double fees;
 	private double openingTime;
 	private double closingTime;
+
+	public TempleDTO() {
+		System.out.println("created default constructor of templedto...");
+	}
 
 	public TempleDTO(String name, String location, String mainGod, int pincode, double fees, double openingTime,
 			double closingTime) {

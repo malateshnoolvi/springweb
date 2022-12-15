@@ -41,7 +41,7 @@
 		</div>
 	</nav>
 
-	<form action="save" method="post"; style="font-weight: bolder; color:white;font-size:x-large;">
+	<form action="save" method="post"  style="font-weight: bolder; color:white;font-size:x-large;">
 	<p>
 		<a href="#" class="text-success">${message}</a>
 	</p>
@@ -60,13 +60,13 @@
 
    ROOMNO:     <input type="number" name="roomNo" />
 
-   MAINTENANCE: <input type="radio" name="maintenance">Yes <input type="radio" name="maintenance">No   
+   MAINTENANCE: <input type="radio" name="maintenance" value="yes">Yes <input type="radio" name="maintenance" value="No">No   
           
-   CAMERA:      <input type="radio"  name="camera">Yes <input type="radio"  name="camera">No  
+   CAMERA:      <input type="radio"  name="camera" value="yes">Yes <input type="radio"  name="camera" value="No">No  
           
-   AIRCODITION: <input type="radio" name="airCondition">Yes <input type="radio" name="airCondition">No  
+   AIRCODITION: <input type="radio" name="airCondition" value="yes">Yes <input type="radio" name="airCondition" value="No">No  
             
-   SERVICE:     <input type="radio" name="service">Yes <input type="radio" name="service">Yes                       
+   SERVICE:     <input type="radio" name="service" value="yes">Yes <input type="radio" name="service" value="No">No                       
 
           <input type="submit" value="save" class="btn-primary"/>
 </pre>

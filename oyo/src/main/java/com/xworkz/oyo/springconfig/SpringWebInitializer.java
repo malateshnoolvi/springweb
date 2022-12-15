@@ -26,7 +26,7 @@ public class SpringWebInitializer extends AbstractAnnotationConfigDispatcherServ
 	@Override
 	protected String[] getServletMappings() {
 		System.out.println("created getServletMappings");
-		return new String[] { "/" };
+		return new String[] {"/"};
 	}
 
 	@Override

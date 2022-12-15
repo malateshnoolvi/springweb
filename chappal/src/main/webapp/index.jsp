@@ -70,9 +70,9 @@
 			  <option>10</option>
 		      </select><br>
          
-                  GENDER <input type="radio" name="gender">male
-                         <input type="radio" name="gender">female
-                         <input type="radio" name="gender">others
+                  GENDER <input type="radio" name="gender" value="male">male
+                         <input type="radio" name="gender" value="female">female
+                         <input type="radio" name="gender" value="others">others
               
                    <input type="submit" value="save" class="btn-primary">
 </pre>
