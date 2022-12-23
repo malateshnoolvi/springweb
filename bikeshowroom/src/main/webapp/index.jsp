@@ -29,14 +29,11 @@
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="btn btn-primary"
-						aria-current="page" href="#">HOME</a></li>
+						aria-current="page" href="#">HOME</a>
+						<a class="btn btn-primary"
+						aria-current="page" href="Search.jsp">Search</a></li>
 				</ul>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search" placeholder="Search"
-						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">SEARCH</button>
-
-				</form>
+				
 			</div>
 		</div>
 	</nav>
@@ -56,11 +53,9 @@ OWNERNAME   <input type="text" name="ownerName" value="${dto.ownerName}" /><br>
 
 LOCATION    <input type="text" name="location" value="${dto.location}" /><br>
 
-AMBASSADOR  <input type="text" name="ambassador"
-				value="${dto.ambassador}" /><br>
+AMBASSADOR  <input type="text" name="ambassador" value="${dto.ambassador}" /><br>
 
-DESCRIPTION <input type="text" name="description"
-				value="${dto.description}" /><br>
+DESCRIPTION <input type="text" name="description" value="${dto.description}" /><br>
 
           <input type="submit" value="send" class="btn-primary" />
 </pre>

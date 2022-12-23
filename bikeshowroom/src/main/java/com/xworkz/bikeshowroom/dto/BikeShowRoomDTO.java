@@ -1,8 +1,16 @@
 package com.xworkz.bikeshowroom.dto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,12 +21,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "bikeshowroom")
+@NamedQuery(name = "findByBrand",query = "select bs from BikeShowRoomDTO bs where bs.brand=:br")
 public class BikeShowRoomDTO {
 	@Id
+	@NotEmpty
+	@NotNull
+	@Length(min = 3, max = 30, message = "Invalid brand")
 	private String brand;
+	@NotEmpty
+	@NotNull
+	@Length(min = 3, max = 30, message = "Invalid ownerName")
 	private String ownerName;
+	@NotEmpty
+	@NotNull
+	@Length(min = 3, max = 30, message = "Invalid location")
 	private String location;
+	@NotEmpty
+	@NotNull
+	@Length(min = 3, max = 30, message = "Invalid ambassador")
 	private String ambassador;
+	@NotEmpty
+	@NotNull
+	@Length(min = 3, max = 30, message = "Invalid description")
 	private String description;
 
 	public BikeShowRoomDTO() {

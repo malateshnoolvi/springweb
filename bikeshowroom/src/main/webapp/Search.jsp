@@ -1,5 +1,8 @@
+
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@
 	crossorigin="anonymous">
 </head>
 <body
-	style="text-align: left; border-style: groove; background-image: url('https://wallpaperaccess.com/full/163134.jpg'); background-repeat: no-repeat; background-size: 100%">
+style="text-align: left; border-style: groove; background-image: url('https://wallpaperaccess.com/full/163134.jpg'); background-repeat: no-repeat; background-size: 100%">
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
 		<div class="container-fluid">
@@ -29,38 +32,30 @@
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="btn btn-primary"
-						aria-current="page" href="#">HOME</a>
-						<a class="btn btn-primary"
-						aria-current="page" href="Search.jsp">Search</a></li>
+						aria-current="page" href="#">HOME</a></li>
 				</ul>
-				
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">SEARCH</button>
+
+				</form>
 			</div>
 		</div>
 	</nav>
+<form action="send" method="get" style="font-weight: bolder; color: white; font-size: x-large;">
+<h1>Enter the details</h1>
+<p style="text-align: center;color: green;">${message}</p>
+<p style="text-align: center;color: red;">${error}</p>
+<pre>
 
-	<form action="send" method="post" style="font-weight: bolder; color: white; font-size: x-large;">
-		<p>
-			<a href="#" class="text-success">${message}</a>
-		</p>
-		<p>
-			<a href="#" class="text-danger">${error}</a>
-		</p>
-		<pre>
-	<h1>BIKESHOWROOM INFORMATION</h1>
-BRAND       <input type="text" name="brand" value="${dto.brand}" /><br>
-
-OWNERNAME   <input type="text" name="ownerName" value="${dto.ownerName}" /><br>
-
-LOCATION    <input type="text" name="location" value="${dto.location}" /><br>
-
-AMBASSADOR  <input type="text" name="ambassador" value="${dto.ambassador}" /><br>
-
-DESCRIPTION <input type="text" name="description" value="${dto.description}" /><br>
-
-          <input type="submit" value="send" class="btn-primary" />
+Brand<input type="text" name="brand">
+    <input type="submit" value="Search">
 </pre>
-	</form>
-	<script
+
+</form>
+
+<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
@@ -72,6 +67,5 @@ DESCRIPTION <input type="text" name="description" value="${dto.description}" /><
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 		crossorigin="anonymous"></script>
-
 </body>
 </html>
