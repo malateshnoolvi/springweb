@@ -34,8 +34,12 @@
 <form action="save">
 <div>
 			<p  class="text-success">${message}</p>
+						
+		    <p  class="text-danger">${error}</p>
+			
 			<br>
 			<p class="text-success-dark">${dto}</p>
+	
 		</div>
 
 </form>

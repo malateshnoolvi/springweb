@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,41 +36,49 @@ public class PatientRepositoryImpl implements PatientRepository {
 	}
 
 	@Override
-	public Optional<List<PatientDTO>> findByName(String name) {
+	public Optional<List<PatientDTO>> findByName(String name, int greaterThanAge, int lesserThanAge) {
 		System.out.println("executing findByName method....");
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createNamedQuery("findByName");
-		Query parameter = query.setParameter("nm", name);
-		List resultList = parameter.getResultList();
-		return Optional.of(resultList);
+
+		try {
+			Query query = manager.createNamedQuery("findByName");
+			query.setParameter("nm", name);
+			query.setParameter("ga", greaterThanAge);
+			query.setParameter("la", lesserThanAge);
+			List resultList = query.getResultList();
+			return Optional.of(resultList);
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
-	public Optional<List<PatientDTO>> findByAge(int age) {
-		System.out.println("executing findByAge method.....");
-		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createNamedQuery("findByAge");
-		Query parameter = query.setParameter("ag", age);
-		List resultList = parameter.getResultList();
-		return Optional.of(resultList);
+	public PatientDTO findByEmail(String email) {
+		try {
+			EntityManager manager = factory.createEntityManager();
+			Query query = manager.createNamedQuery("findByEmail");
+			Query setParameter = query.setParameter("em", email);
+			PatientDTO resultList = (PatientDTO) setParameter.getSingleResult();
+			return resultList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
-	public List<PatientDTO> findByEmail(String email) {
+	public PatientDTO findByMobileNo(long mobileNo) {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createNamedQuery("findByEmail");
-		Query setParameter = query.setParameter("em", email);
-		List resultList = setParameter.getResultList();
-		return resultList;
-	}
-
-	@Override
-	public List<PatientDTO> findByMobileNo(long mobileNo) {
-		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createNamedQuery("findByMobileNo");
-		Query parameter = query.setParameter("mb", mobileNo);
-		List resultList = parameter.getResultList();
-		return resultList;
+		try {
+			Query query = manager.createNamedQuery("findByMobileNo");
+			Query parameter = query.setParameter("mb", mobileNo);
+			PatientDTO resultList = (PatientDTO) parameter.getSingleResult();
+			return resultList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

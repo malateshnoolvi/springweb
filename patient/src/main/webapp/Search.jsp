@@ -31,16 +31,21 @@
 					<li class="nav-item"><a class="btn btn-primary"
 						aria-current="page" href="index.jsp">HOME</a></li>
 				</ul>
-				<form action="save" method="get">
-					<input type="text" class="name" name="name"/> 
-					<input type="submit" value="SearchByName" /><br>
-					<input type="text" class="age" name="age"/>
-					<input type="submit" value="SearchByAge" />
-				</form>
 			</div>
 		</div>
 	</nav>
-
+<form action="save" method="get" style=" font-weight:bolder; font-size: larger;font: larger;text-align:left;">
+         <pre>
+                     <h5>Search Here</h5>
+                     
+					PatientName  <input type="text" class="name" name="name"/> <br>	
+				      GreaterThanAge <input type="text" class="name" name="greaterThanAge" value="0"/> <br> 	
+				       LesserThanAge <input type="text" class="name" name="lesserThanAge" value="0"/> <br>
+					
+					             <input type="submit" value="Search" class="btn-primary" /><br>
+				
+			</pre>	
+				</form>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

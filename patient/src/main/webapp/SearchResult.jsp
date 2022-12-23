@@ -36,6 +36,7 @@
 <thead>
 <tr style="color: black;font-size: larger;">
     <th scope="col" >Name</th>
+     <th scope="col" >Image</th>
       <th scope="col">Email</th>
       <th scope="col">Age</th>
       <th scope="col">MobileNo</th>
@@ -50,6 +51,7 @@
 <c:forEach items="${list}" var="dto">
 <tr>
        <td>${dto.name}</td>
+       <td><img alt="img" src="save/files/${dto.fileName}" width="75" height="80"></td>
        <td>${dto.email}</td>
        <td>${dto.age}</td>
        <td>${dto.mobileNo}</td>
@@ -58,6 +60,7 @@
        <td>${dto.idValue}</td>
        <td>${dto.cardBPL}</td>
        <td>${dto.insurance}</td>
+       
 </tr>
 </c:forEach>
 </tbody>

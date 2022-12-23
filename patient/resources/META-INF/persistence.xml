@@ -10,6 +10,7 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa" />
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="Xworkzodc@123" />
+			<property name="connection.pool_size" value="100" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="format.show_sql" value="true" />
 		</properties>

@@ -2,6 +2,12 @@ package com.xworkz.patient.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,36 +24,42 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public boolean validateAndSave(PatientDTO dto) {
 		System.out.println("running validate and save method");
-		return this.repository.save(dto);
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<PatientDTO>> validate = validator.validate(dto);
+		if (validate.size() > 0) {
+			System.out.println("not validated");
+		} else {
+			System.out.println("vlidated");
+			return this.repository.save(dto);
+		}
+		return true;
 	}
 
 	@Override
-	public Optional<List<PatientDTO>> findByName(String name) {
+	public Optional<List<PatientDTO>> findByName(String name, int greaterThanAge, int lesserThanAge) {
 
-		return repository.findByName(name);
-	}
-
-	@Override
-	public Optional<List<PatientDTO>> findByAge(int age) {
-		return repository.findByAge(age);
+		return repository.findByName(name, greaterThanAge, lesserThanAge);
 	}
 
 	@Override
 	public boolean findByEmail(String email) {
-		List<PatientDTO> findByEmail = repository.findByEmail(email);
+		PatientDTO findByEmail = repository.findByEmail(email);
+
 		if (findByEmail != null) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean findByMobileNo(long mobileNo) {
-		List<PatientDTO> findByMobileNo = repository.findByMobileNo(mobileNo);
+		PatientDTO findByMobileNo = repository.findByMobileNo(mobileNo);
+
 		if (findByMobileNo != null) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 }

@@ -8,9 +8,9 @@ import com.xworkz.patient.dto.PatientDTO;
 public interface PatientService {
 	boolean validateAndSave(PatientDTO dto);
 	
-	Optional<List<PatientDTO>> findByName(String name);
+	Optional<List<PatientDTO>> findByName(String name,int greaterThanAge,int lesserThanAge);
 	
-	Optional<List<PatientDTO>>  findByAge(int age);
+	//Optional<List<PatientDTO>>  findByAge(int age);
 	
 	boolean findByEmail(String email);
 	

@@ -9,11 +9,9 @@ public interface PatientRepository {
 
 	boolean save(PatientDTO dto);
 
-	Optional<List<PatientDTO>> findByName(String name);
+	Optional<List<PatientDTO>> findByName(String name,int greaterThanAge,int lesserThanAge);
 
-	Optional<List<PatientDTO>> findByAge(int age);
+	PatientDTO findByEmail(String email);
 
-	List<PatientDTO> findByEmail(String email);
-
-	List<PatientDTO> findByMobileNo(long mobileNo);
+	PatientDTO findByMobileNo(long mobileNo);
 }
